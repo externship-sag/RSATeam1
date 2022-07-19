@@ -18,20 +18,34 @@ public class RSAOutputWriter {
 	
 	public static void createOutputFile()
 	{
-		try {
-			Path path = Paths.get(RSAFileUtils.getFolderPath("/data/output")+"/Result.csv");
+		File pathDir = new File(RSAFileUtils.getFolderPath("/data/output/"));
+		Path path = Paths.get(RSAFileUtils.getFolderPath("/data/output")+"/Result.csv");
+		if (!pathDir.exists()){
+			pathDir.mkdir();
+			rsaDebug.print("Creating dir:" + pathDir.getName());
+		}
+		else {
 			if(Files.exists(path)) {
 				rsaDebug.print("Clearing output folder");
-				Files.delete(path);
-				Files.createFile(path);
-				String[] ouputHeader = {"Name","Skill","Qualification","Experience","Eligible"};
-				updateOutput(ouputHeader);
+				try {
+					Files.delete(path);
+				}
+				catch (IOException e) {
+					  System.err.println(e.getMessage());
+				      System.err.println("System Err : Failed to delete the output folder");
+				}
 			}
 		}
-		catch (Exception e) {
-	        System.err.println(e.getMessage());
-	        System.err.println("Failed to locate the resume folder, check your system!!");
-	    }
+		try {
+			Files.createFile(path);
+		} 
+		catch (IOException e) {
+			  System.err.println(e.getMessage());
+		      System.err.println("Failed to create output folder, check your system!!");
+	    	}
+		String[] ouputHeader = {"Name","Skill","Qualification","Experience","Eligible"};
+		updateOutput(ouputHeader);
+
 	}
 	
 	public static void updateOutput(String[] displayStr)
