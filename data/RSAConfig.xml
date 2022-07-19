@@ -1,0 +1,19 @@
+<xml>
+    <criteria>
+        <Skill>java</Skill>
+    </criteria>
+    <criteria>
+        <Qualification>Bachelor</Qualification>
+        <Qualification>Bachelors</Qualification>
+        <Qualification>BCA</Qualification>          
+        <Qualification>B.Sc.</Qualification>  
+        <Qualification>B.E</Qualification> 
+        <Qualification>B.Tech</Qualification> 
+        <Qualification>B.Com</Qualification> 
+        <Qualification>B.A</Qualification>
+    </criteria>
+    <criteria>
+        <MinExperience>5</MinExperience>
+        <MaxExperience>10</MaxExperience>
+    </criteria>
+</xml>
