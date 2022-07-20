@@ -94,15 +94,13 @@ public class RSAConfigParser {
 		    NodeList nList = doc.getElementsByTagName(cTag);		  
 		    for (int temp = 0; temp < nList.getLength(); temp++) {
 		        Node nNode = nList.item(temp);
-		        String data = "";
 		        if(nNode.hasChildNodes()){
-		        	NodeList list = nNode.getChildNodes();
-		        	data = list.item(0).getNodeValue();
-		            if(data.trim().length() > 0)
-		            	rsaDebug.print("value :: "+ data);
+					NodeList list = nNode.getChildNodes();
+					String data = list.item(0).getNodeValue();
+					rsaDebug.print("value :: "+ data);
+					fillCriteriaCollection(cTag, data);
 		        }
-	            ++criteriaCnt;
-	 	       fillCriteriaCollection(cTag, data);
+		        ++criteriaCnt;
 		    }
 	       
 	    }
