@@ -46,11 +46,11 @@ public class ExperienceCriteria implements RSACriteriaList{
 
 		while (tok_matcher.find())
 		{
-			Pattern year_pattern = Pattern.compile("\\d+");
+			Pattern year_pattern = Pattern.compile("\\d+(\\.\\d+)?");
 		    Matcher year_matcher = year_pattern.matcher(tok_matcher.group().toString());
 		    while (year_matcher.find())
 		    {
-		    	ExperienceValue = Integer.parseInt(year_matcher.group().toString());
+		    	ExperienceValue = (int) Float.parseFloat(year_matcher.group().toString());
 		    	if(isExperienceEligible())
 		    		++searchStatus;
 		    	return(year_matcher.group().toString());
