@@ -13,7 +13,7 @@
         <Qualification>B.A</Qualification>
     </criteria>
     <criteria>
-        <MinExperience>5</MinExperience>
-        <MaxExperience>10</MaxExperience>
+        <MinExperience>2</MinExperience>
+        <MaxExperience>40</MaxExperience>
     </criteria>
 </xml>
