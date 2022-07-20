@@ -95,10 +95,10 @@ public class RSAConfigParser {
 		    for (int temp = 0; temp < nList.getLength(); temp++) {
 		        Node nNode = nList.item(temp);
 		        if(nNode.hasChildNodes()){
-					NodeList list = nNode.getChildNodes();
-					String data = list.item(0).getNodeValue();
-					rsaDebug.print("value :: "+ data);
-					fillCriteriaCollection(cTag, data);
+				NodeList list = nNode.getChildNodes();
+				String data = list.item(0).getNodeValue();
+				rsaDebug.print("value :: "+ data);
+				fillCriteriaCollection(cTag, data);
 		        }
 		        ++criteriaCnt;
 		    }
