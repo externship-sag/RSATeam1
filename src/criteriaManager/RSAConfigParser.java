@@ -52,44 +52,13 @@ public class RSAConfigParser {
 	    }
 	}
 	
-	private void getData(Node parentNode, Node node,ArrayList<String> strList){
-
-	    switch(node.getNodeType()){
-	    	case Node.ELEMENT_NODE:{
-
-	            if(node.hasChildNodes()){
-	                NodeList list = node.getChildNodes();
-	                int size = list.getLength();
-	                for(int index = 0; index < size; index++){
-	                    getData(node, list.item(index),strList);
-	                }
-	            }
-
-	            break;
-	        }
-
-	        case Node.TEXT_NODE:{
-	        	String data = node.getNodeValue();
-	            
-	            if(data.trim().length() > 0){
-	            	strList.add(data);
-	            	rsaDebug.print(parentNode.getNodeName()+" :: "+node.getNodeValue());
-	            }
-	            break;
-	        }
-
-	    }
-	    
-	    return;
-	}
-	
-	private static void fillCriteriaCollection(String criteriaType, ArrayList<String> strVal) 
+	private static void fillCriteriaCollection(String criteriaType, String strVal) 
 	{
 		for(RSACriteriaList list: criteriaList)
 		{
 			if(criteriaType.contains(list.getTagValue()))
 			{
-				list.setValueList(strVal.get(0));
+				list.setValueList(strVal);
 			}
 		}
 		
@@ -122,15 +91,18 @@ public class RSAConfigParser {
 
 	    for(String cTag:criteriaXMLTag)
 	    {
-		    NodeList nList = doc.getElementsByTagName(cTag);
-		  
+		    NodeList nList = doc.getElementsByTagName(cTag);		  
 		    for (int temp = 0; temp < nList.getLength(); temp++) {
 		        Node nNode = nList.item(temp);
-		        ArrayList<String> strList = new ArrayList<String>();
-	            getData(null,nNode, strList); 
+		        String data = "";
+		        if(nNode.hasChildNodes()){
+		        	NodeList list = nNode.getChildNodes();
+		        	data = list.item(0).getNodeValue();
+		            if(data.trim().length() > 0)
+		            	rsaDebug.print("value :: "+ data);
+		        }
 	            ++criteriaCnt;
-	 	       fillCriteriaCollection(cTag, strList);
-
+	 	       fillCriteriaCollection(cTag, data);
 		    }
 	       
 	    }
