@@ -39,8 +39,8 @@ public class ExperienceCriteria implements RSACriteriaList{
 
 	public String searchCriteria(String fileData)
 	{
-		String token = "(?<=experience)(.*)(?=years)";
-	
+		//String token = "(?<=experience)(.*)(?=years)";
+		String token = "(.*)(?<=experience)(.*)([\\s\\S]*)";
 		Pattern tok_pattern = Pattern.compile(token,Pattern.CASE_INSENSITIVE);	
 		Matcher tok_matcher = tok_pattern.matcher(fileData);
 
@@ -51,10 +51,11 @@ public class ExperienceCriteria implements RSACriteriaList{
 		    while (year_matcher.find())
 		    {
 		    	ExperienceValue = (int) Float.parseFloat(year_matcher.group().toString());
-		    	if(isExperienceEligible())
-		    		++searchStatus;
-		    	return(year_matcher.group().toString());
-		    }
+				rsaDebug.print("Experience:"+ExperienceValue);
+				if(isExperienceEligible())
+					++searchStatus;
+				return(year_matcher.group().toString());
+			}
 		}
 		return("**");
 	}
