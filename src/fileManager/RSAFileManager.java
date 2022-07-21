@@ -2,6 +2,8 @@ package fileManager;
 
 import java.io.File;
 
+import debugprint.rsaDebug;
+
 public class RSAFileManager {
 	
 	private String fileData;
@@ -12,6 +14,7 @@ public class RSAFileManager {
 	}
 	private String fetchFileData(String ftype, File fileptr)
 	{
+		rsaDebug.print("*****************************");
 		if(!RSAFileUtils.validateFile(fileptr))
 			return fileData = "";
         switch(ftype) {
@@ -24,6 +27,9 @@ public class RSAFileManager {
         case "doc":
         	fileData = (new DocFileReader()).getFileData(fileptr);
         	break;
+        case "docx":
+        	fileData = (new DocxFileReader()).getFileData(fileptr);
+        	break;	
         default:
         	System.err.println("Unsupported file::"+fileptr.getName());
         	fileData = "";
