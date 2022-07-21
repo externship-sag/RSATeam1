@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 public class DocxFileReader implements RSAFileReader {
 
 	public String getFileData(File file) {
+	System.out.println("Reading Docx File::"+file.getName());
         String text = "";
         try {
             FileInputStream fInput = new FileInputStream(file);
