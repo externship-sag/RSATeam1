@@ -10,6 +10,33 @@ public class QualificationCriteria implements RSACriteriaList{
 
 	private ArrayList<String> ValueList;
 	private int searchStatus = 0;
+
+	private enum qRegex{
+		BCA("B\\.*C\\.*A\\.*"),
+		BSc("B\\.*Sc\\.*"),
+		BE("B\\.*E\\.*"),
+		BTech("B\\.*Tech\\.*"),
+		BCom("B\\.*Com\\.*"),
+		BA("B\\.*A\\.*"),
+		Bachelor("Bachelor"),
+		Bachelors("Bachelors");
+
+		private String regexStr;
+
+		qRegex(final String strVal) {
+			this.regexStr = strVal;
+		}
+
+	    @Override
+	    public String toString() {
+	        return this.getregexStr();
+	    }
+
+		String getregexStr() {
+			return regexStr;
+		}
+
+	}
 	
 	public QualificationCriteria() {
 		ValueList = new ArrayList<String>();
@@ -35,15 +62,21 @@ public class QualificationCriteria implements RSACriteriaList{
 	{
 		for(String keyValue : ValueList)
 		{
-			String strRegex = keyValue;
-	        Pattern pattern = Pattern.compile(strRegex);
-	        Matcher matcher = pattern.matcher(fileData);
-	        rsaDebug.print(keyValue+"::"+strRegex);
-	        while(matcher.find()){
-	        	++searchStatus;
-	            rsaDebug.print("Found at " + matcher.group());
-	            return keyValue;
-	        }
+			String strRegex;
+			try {
+				strRegex = "(?s).*\\b"+qRegex.valueOf(keyValue).toString()+"\\b.*";
+			}catch(IllegalArgumentException e) {
+				strRegex = "(?s).*\\b"+keyValue+"\\b.*";
+			}
+			rsaDebug.print("Regex ::"+strRegex);
+
+			Matcher matcher = Pattern.compile(strRegex).matcher(fileData);
+			rsaDebug.print(keyValue+" :: "+strRegex);
+			while(matcher.find()){
+				++searchStatus;
+				//rsaDebug.print("Found at " + matcher.group());
+				return keyValue;
+			}
 		}
 		return "****";
 	}

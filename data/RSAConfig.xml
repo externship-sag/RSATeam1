@@ -3,14 +3,14 @@
         <Skill>java</Skill>
     </criteria>
     <criteria>
+        <Qualification>BCA</Qualification>
+        <Qualification>BSc</Qualification>
+        <Qualification>BE</Qualification>
+        <Qualification>BTech</Qualification>
+        <Qualification>BCom</Qualification>
+        <Qualification>BA</Qualification>
         <Qualification>Bachelor</Qualification>
         <Qualification>Bachelors</Qualification>
-        <Qualification>BCA</Qualification>          
-        <Qualification>B.Sc.</Qualification>  
-        <Qualification>B.E</Qualification> 
-        <Qualification>B.Tech</Qualification> 
-        <Qualification>B.Com</Qualification> 
-        <Qualification>B.A</Qualification>
     </criteria>
     <criteria>
         <MinExperience>2</MinExperience>
