@@ -15,8 +15,6 @@ public class PdfFileReader implements RSAFileReader {
             PDDocument document = PDDocument.load(file);
             document.getClass();
             if (!document.isEncrypted()) {
-                PDFTextStripperByArea stripper = new PDFTextStripperByArea();
-                stripper.setSortByPosition(true);
                 PDFTextStripper textStripper = new PDFTextStripper();
                 text = textStripper.getText(document).trim();
                 document.close();

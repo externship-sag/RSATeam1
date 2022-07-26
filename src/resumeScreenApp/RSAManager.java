@@ -23,6 +23,10 @@ public class RSAManager
 		}
 		try {
 			File directoryPath = new File(RSAFileUtils.getFolderPath("/data/resumes"));
+			if (!directoryPath.exists()){
+				System.err.println("Failed to locate the resume folder");
+				java.lang.System.exit(1);
+			}
 			filesList = directoryPath.listFiles();
 		}
 		catch (Exception e) {
