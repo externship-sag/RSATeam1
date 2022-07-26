@@ -10,14 +10,16 @@ public class RSAFileManager {
 	private String fileName;
 	
 	public RSAFileManager(File file) {
-		fetchFileData(getFileExtension(file),file);
+		fetchFileData(file);
 	}
-	private String fetchFileData(String ftype, File fileptr)
+	private void fetchFileData(File fileptr)
 	{
 		rsaDebug.print("*****************************");
-		if(!RSAFileUtils.validateFile(fileptr))
-			return fileData = "";
-        switch(ftype) {
+		if(!RSAFileUtils.validateFile(fileptr)){
+			fileData = "";
+			return;
+		}
+        switch(getFileExtension(fileptr)) {
         case "txt":
         	fileData = (new TxtFileReader()).getFileData(fileptr);
         	break;
@@ -35,7 +37,6 @@ public class RSAFileManager {
         	fileData = "";
         	break;
         }       
-        return fileData;
 	}
 	
     private String getFileExtension(File fileptr) {
