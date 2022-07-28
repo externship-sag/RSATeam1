@@ -64,9 +64,9 @@ public class QualificationCriteria implements RSACriteriaList{
 		{
 			String strRegex;
 			try {
-				strRegex = "(?s).*\\b"+qRegex.valueOf(keyValue).toString()+"\\b.*";
+				strRegex = "[\\s , : ; - ( \\ \\/ \\[ ]\\b"+qRegex.valueOf(keyValue).toString()+"\\b";
 			}catch(IllegalArgumentException e) {
-				strRegex = "(?s).*\\b"+keyValue+"\\b.*";
+				strRegex = "\\b"+keyValue+"\\b";
 			}
 			rsaDebug.print("Regex ::"+strRegex);
 

@@ -40,7 +40,7 @@ public class SkillCriteria implements RSACriteriaList {
 	{	
 		for(String keyValue : ValueList)
 		{
-			String strRegex = "(?s).*\\b"+keyValue+"\\b.*";
+			String strRegex = "\\b"+keyValue+"\\b";
 	        Pattern pattern = Pattern.compile(strRegex,Pattern.CASE_INSENSITIVE);
 	        Matcher matcher = pattern.matcher(fileData);
 	        rsaDebug.print("Keyvalue = "+strRegex);
