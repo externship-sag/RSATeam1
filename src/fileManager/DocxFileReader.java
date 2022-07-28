@@ -8,7 +8,9 @@ import java.io.FileInputStream;
 
 
 public class DocxFileReader implements RSAFileReader {
-
+	/*
+	 * Read method for .docx file.
+	 */
 	public String getFileData(File file) {
 	System.out.println("Reading Docx File::"+file.getName());
         String text = "";

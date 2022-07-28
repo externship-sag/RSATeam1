@@ -12,6 +12,11 @@ public class RSAFileManager {
 	public RSAFileManager(File file) {
 		fetchFileData(file);
 	}
+	/*
+	 * For each resume file, based on the file extension type
+	 * corresponding file read methods will be invoked and store the
+	 * file content in the private buffer variable:fileData.
+	 */
 	private void fetchFileData(File fileptr)
 	{
 		rsaDebug.print("*****************************");
@@ -38,7 +43,9 @@ public class RSAFileManager {
         	break;
         }       
 	}
-	
+	/*
+	 * Local Method to identify the file extension type.
+	 */
     private String getFileExtension(File fileptr) {
     	fileName = fileptr.getName();
         try {
@@ -47,7 +54,9 @@ public class RSAFileManager {
             return "";
         }
     }
-    
+    /*
+     * Method to fetch the candidate name from the file name.
+     */
     public String getFileName()
     {
     	 try {
@@ -56,7 +65,9 @@ public class RSAFileManager {
              return "";
          }
     }
-    
+    /*
+     * Get Method to read the private member: fileData
+     */
     public String getFileData()
     {
     	return this.fileData;

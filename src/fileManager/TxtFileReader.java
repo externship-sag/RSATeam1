@@ -8,7 +8,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class TxtFileReader implements RSAFileReader{
-	
+
+	/*
+	 * Read method for Text file.
+	 */
     public String getFileData(File file) {
     	
     	StringBuilder text = new StringBuilder();

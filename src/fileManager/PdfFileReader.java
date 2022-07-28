@@ -7,7 +7,9 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 public class PdfFileReader implements RSAFileReader {
-	
+	/*
+	 * Read method for pdf file.
+	 */
 	public String getFileData(File file) { 
         String text = "";
         System.out.println("Reading PDF File::"+file.getName());

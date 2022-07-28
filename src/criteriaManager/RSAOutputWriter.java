@@ -15,7 +15,9 @@ import fileManager.RSAFileUtils;
 
 public class RSAOutputWriter {
 	static File Path;
-	
+	/*
+	 * Method to create csv file to display the search results.
+	 */
 	public static void createOutputFile()
 	{
 		File pathDir = new File(RSAFileUtils.getFolderPath("/data/output/"));
@@ -47,7 +49,9 @@ public class RSAOutputWriter {
 		updateOutput(ouputHeader);
 
 	}
-	
+	/*
+	 * Write the search results in the csv file
+	 */
 	public static void updateOutput(String[] displayStr)
 	{
 		try {

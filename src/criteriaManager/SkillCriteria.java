@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import debugprint.rsaDebug;
 
 public class SkillCriteria implements RSACriteriaList {
-
+	//List to store Skill related key values.
 	private ArrayList<String> ValueList;
 	private int searchStatus = 0;
 	
@@ -35,7 +35,10 @@ public class SkillCriteria implements RSACriteriaList {
 	public void resetSearchStatus() {
 		searchStatus = 0;
 	}
-	
+	/*
+	 * Search method to find Skill key value match 
+	 * in the file data.
+	 */
 	public String searchCriteria(String fileData)
 	{	
 		for(String keyValue : ValueList)

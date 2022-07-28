@@ -2,6 +2,9 @@ package resumeScreenApp;
 
 public class ResumeScreeningApp {
 	
+	/*
+	 * Application Main function
+	 */
 	public static void main(String[] args) {
 		System.out.println("===Application Started...");
 	

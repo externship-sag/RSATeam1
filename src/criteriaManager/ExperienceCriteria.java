@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import debugprint.rsaDebug;
 
 public class ExperienceCriteria implements RSACriteriaList{
-
+	//List to store Experience related key values.
 	private ArrayList<String> ValueList;
 	private int ExperienceValue = 0;
 	private int searchStatus = 0;
@@ -36,7 +36,9 @@ public class ExperienceCriteria implements RSACriteriaList{
 	public String getTagValue() {
 		return "Experience";
 	}
-
+	/*
+	 * Fetch years of experience based the input regex string.
+	 */
 	private String searchExp(String fileData, String regexStr)
 	{
 		Pattern tok_pattern = Pattern.compile(regexStr,Pattern.CASE_INSENSITIVE);
@@ -57,7 +59,10 @@ public class ExperienceCriteria implements RSACriteriaList{
 		}
 		return("**");
 	}
-
+	/*
+	 * Method to fetch experience value from
+	 * the file data with different text writing patterns.
+	 */
 	public String searchCriteria(String fileData)
 	{
 		String outStr = searchExp(fileData,"(?<=experience)(.*)(?=years)");
@@ -68,7 +73,10 @@ public class ExperienceCriteria implements RSACriteriaList{
 		}
 		return outStr;
 	}
-	
+	/*
+	 * Check whether the fetched experience value is within 
+	 * the defined criteria range.
+	 */
 	private boolean isExperienceEligible()
 	{
 		rsaDebug.print("Experience:"+ExperienceValue);

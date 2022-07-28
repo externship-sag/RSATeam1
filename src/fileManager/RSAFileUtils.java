@@ -9,6 +9,10 @@ import debugprint.rsaDebug;
 public class RSAFileUtils
 {
 	public static final int fileMaxSize = 2097152;//2MB
+	/*
+	 * Utility function to read the absolute path 
+	 * and used for file handling operations.
+	 */
 	public static String getFolderPath(String folderName)
 	{
 		StringBuilder folderPath;  
@@ -19,6 +23,9 @@ public class RSAFileUtils
 		return folderPath.toString();
 	}
 	
+	/*
+	 * Utility method to check the file size and read privileges.
+	 */
     public static boolean validateFile(File file)
     {
     	if((file.length()>0 && file.length()<fileMaxSize)  || file.canRead())

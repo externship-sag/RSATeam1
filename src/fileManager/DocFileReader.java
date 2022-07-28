@@ -7,7 +7,9 @@ import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 
 public class DocFileReader implements RSAFileReader {
-	
+	/*
+	 * Read method for .doc file.
+	 */
 	public String getFileData(File file) {
 		 System.out.println("Reading Doc File::"+file.getName());
 		 String text = "";

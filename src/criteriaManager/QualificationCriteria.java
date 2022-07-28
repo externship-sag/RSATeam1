@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import debugprint.rsaDebug;
 
 public class QualificationCriteria implements RSACriteriaList{
-
+	//List to store Qualification related key values.
 	private ArrayList<String> ValueList;
 	private int searchStatus = 0;
 
@@ -58,6 +58,10 @@ public class QualificationCriteria implements RSACriteriaList{
 	public int getSearchStatus() {
 		return searchStatus;
 	}
+	/*
+	 * Search method to find Qualification key value match 
+	 * in the file data.
+	 */
 	public String searchCriteria(String fileData)
 	{
 		for(String keyValue : ValueList)

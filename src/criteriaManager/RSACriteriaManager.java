@@ -19,7 +19,11 @@ public class RSACriteriaManager{
 	public void setOutputString(String outString) {
 		outputString.add(outString);
 	}
-	
+	/*
+	 * For each resume file, the file data is passed to criteria classes
+	 * to perform the search operation.Based on the search status, the candidate
+	 * is marked as eligible or not.
+	 */
 	public void CheckCriteriaEligibilty(ArrayList<RSACriteriaList> criteriaList, RSAFileManager fileManager)
 	{
 		int eligibleCnt = 0;
